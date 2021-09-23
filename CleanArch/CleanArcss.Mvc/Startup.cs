@@ -1,7 +1,9 @@
+using CleanArch.Application.Configurations;
 using CleanArch.Infra.Data;
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.IoC;
 using CleanArcss.Mvc.Data;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -45,6 +47,10 @@ namespace CleanArcss.Mvc
         });
 
             services.AddControllersWithViews();
+
+            services.AddMediatR(typeof(Startup));
+
+            services.RegisterAutoMapper();
 
             RegisterServices(services);
         }
